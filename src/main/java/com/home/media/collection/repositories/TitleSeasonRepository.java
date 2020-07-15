@@ -14,8 +14,6 @@ import com.home.media.collection.models.TitleSeason;
 import com.home.media.collection.models.TitleSeasonKey;
 import com.home.media.collection.models.projections.TitleSeasonProjections;
 
-
-
 @RepositoryRestResource(excerptProjection = TitleSeasonProjections.class, exported = true, collectionResourceRel = "title-seasons", path = "title-seasons")
 public interface TitleSeasonRepository extends PagingAndSortingRepository<TitleSeason, TitleSeasonKey> {
 
@@ -33,9 +31,6 @@ public interface TitleSeasonRepository extends PagingAndSortingRepository<TitleS
 
 	@RestResource(path = "id_title", rel = "id_title")
 	public Page<TitleSeason> findByIdIdTitle(Long idTitle, Pageable pageable);
-	
-//	@RestResource(path = "title-contain", rel = "title-contain")
-//	public Page<TitleSeasonProjections> findByIdTitleContainingIgnoreCase(String title, Pageable pageable);
 
 	@RestResource(path = "id_season", rel = "id_season")
 	public Page<TitleSeason> findByIdIdSeason(Long idSeason, Pageable pageable);

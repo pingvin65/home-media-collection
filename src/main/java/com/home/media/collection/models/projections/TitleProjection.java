@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.data.rest.core.config.Projection;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.home.media.collection.models.Genre;
 import com.home.media.collection.models.Title;
 
@@ -20,9 +21,11 @@ public interface TitleProjection {
 	public Date getCreateDate();
 
 	interface Type {
-		String getTypeMedia();
-	}
+		@JsonProperty("type-media")
 
+		String getTypeMedia();
+
+	}
 	public Type getType();
 
 	public Set<Genre> getGenres();

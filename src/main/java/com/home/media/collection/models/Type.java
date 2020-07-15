@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Type {
 
@@ -21,6 +23,7 @@ public class Type {
 	private Long idType;
 
 	@Column(unique = true, nullable = false, length = 32)
+	@JsonProperty("type-media")
 	private String typeMedia;
 
 	private String description;
