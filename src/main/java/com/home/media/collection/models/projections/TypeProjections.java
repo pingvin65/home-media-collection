@@ -7,7 +7,7 @@ import com.home.media.collection.models.Type;
 
 @Projection(name = "type", types = { Type.class })
 public interface TypeProjections{
-	@JsonProperty("type-media")
+	@JsonProperty("type_media")
 	String getTypeMedia();
 
 }

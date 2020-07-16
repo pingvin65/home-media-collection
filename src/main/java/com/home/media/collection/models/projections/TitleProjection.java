@@ -21,7 +21,7 @@ public interface TitleProjection {
 	public Date getCreateDate();
 
 	interface Type {
-		@JsonProperty("type-media")
+		@JsonProperty("type_media")
 
 		String getTypeMedia();
 
