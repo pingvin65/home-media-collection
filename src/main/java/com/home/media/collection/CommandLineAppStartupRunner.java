@@ -1,5 +1,6 @@
 package com.home.media.collection;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -89,17 +90,18 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	private void insertDataInTitle() {
 		List<Title> titles = new ArrayList<>();
 		Type typeEntertainment = typeRepository.findByTypeMedia("entertainment").orElseThrow();
-
+		LocalDate date = LocalDate.now().minusMonths(101); 
 		HashMap<Integer, Title> titlesTitleHashMap = new HashMap<Integer, Title>();
-		titlesTitleHashMap.put(1, new Title("TV Show 1", java.sql.Date.valueOf("1993-06-05")));
-		titlesTitleHashMap.put(2, new Title("TV Show 2", java.sql.Date.valueOf("2018-06-17")));
-		titlesTitleHashMap.put(3, new Title("TV Show 3", java.sql.Date.valueOf("2019-06-19")));
-		titlesTitleHashMap.put(4, new Title("TV Show 4", java.sql.Date.valueOf("2020-05-01")));
-		titlesTitleHashMap.put(5, new Title("TV Show 5", java.sql.Date.valueOf("2020-06-25")));
+		for (int i= 1; i<=100; i++) {
+			String name = "TV Show " + i; 
+			titlesTitleHashMap.put(i, new Title(name, java.sql.Date.valueOf(date.plusMonths(i))));
+		}
+
 
 		for (Entry<Integer, Title> title : titlesTitleHashMap.entrySet())
 			titles.add(new Title(title.getValue().getTitle(), "", typeEntertainment, true));
 		titleRepository.saveAll(titles);
+
 		try {
 			for (Entry<Integer, Title> title : titlesTitleHashMap.entrySet()) {
 

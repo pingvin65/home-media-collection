@@ -1,6 +1,5 @@
 package com.home.media.collection.models;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -32,8 +31,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@NamedEntityGraph(name = "Title.detail",
-attributeNodes = @NamedAttributeNode("titlesSeasons"))
+@NamedEntityGraph(name = "Title.detail", attributeNodes = @NamedAttributeNode("titlesSeasons"))
 @Table(name = "titles", uniqueConstraints = { @UniqueConstraint(columnNames = { "title", "id_type", "is_series" }) })
 public class Title {
 
@@ -75,24 +73,6 @@ public class Title {
 	}
 
 	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
-			Date createDate) {
-		super();
-		this.title = title;
-		this.createDate = createDate;
-	}
-
-	public Title(Long idTitle,
-			@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
-			String path, boolean isSeries, Date createDate) {
-		super();
-		this.idTitle = idTitle;
-		this.title = title;
-		this.path = path;
-		this.isSeries = isSeries;
-		this.createDate = createDate;
-	}
-
-	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
 			String path, Type type, boolean isSeries) {
 		super();
 		this.title = title;
@@ -102,14 +82,53 @@ public class Title {
 	}
 
 	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
-			String path, Date createDate, Type type, boolean isSeries) {
+			Date createDate) {
 		super();
 		this.title = title;
-		this.path = path;
 		this.createDate = createDate;
-		this.type = type;
-		this.isSeries = isSeries;
 	}
+//
+//	public Title(Long idTitle,
+//			@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
+//			String path, boolean isSeries, Date createDate) {
+//		super();
+//		this.idTitle = idTitle;
+//		this.title = title;
+//		this.path = path;
+//		this.isSeries = isSeries;
+//		this.createDate = createDate;
+//	}
+//
+//	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
+//			String path, Type type, boolean isSeries) {
+//		super();
+//		this.title = title;
+//		this.path = path;
+//		this.type = type;
+//		this.isSeries = isSeries;
+//	}
+//
+//	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
+//			String path, Date createDate, Type type, boolean isSeries) {
+//		super();
+//		this.title = title;
+//		this.path = path;
+//		this.createDate = createDate;
+//		this.type = type;
+//		this.isSeries = isSeries;
+//	}
+//
+//	
+//	
+//	public Title(@NotBlank(message = "Title may not be blank") @NotNull(message = "Title may not be null") String title,
+//			String path, Type type, boolean isSeries, Set<Genre> genres) {
+//		super();
+//		this.title = title;
+//		this.path = path;
+//		this.type = type;
+//		this.isSeries = isSeries;
+//		this.genres = genres;
+//	}
 
 	public Long getIdTitle() {
 		return idTitle;
@@ -206,4 +225,3 @@ public class Title {
 	}
 
 }
-
