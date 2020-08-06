@@ -10,6 +10,10 @@ public class TitleDTO {
 
 	private boolean is_series;
 
+	public TitleDTO() {
+
+	}
+
 	public TitleDTO(String title, String path, Long type_id, boolean is_series) {
 		super();
 		this.title = title;
@@ -34,7 +38,6 @@ public class TitleDTO {
 		this.path = path;
 	}
 
-
 	public Long getType_id() {
 		return type_id;
 	}
@@ -50,7 +53,5 @@ public class TitleDTO {
 	public void setIs_series(boolean is_series) {
 		this.is_series = is_series;
 	}
-
-
 
 }

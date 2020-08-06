@@ -68,7 +68,7 @@ public class Title {
 	@OneToMany(mappedBy = "title", fetch = FetchType.LAZY)
 	List<TitleSeason> titlesSeasons = new ArrayList<TitleSeason>();
 
-	protected Title() {
+	public Title() {
 		super();
 	}
 
